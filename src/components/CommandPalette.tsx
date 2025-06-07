@@ -5,11 +5,10 @@ import { cn } from "../util/tailwind";
 
 export function CommandPalette() {
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("");
   const listRef = useRef<HTMLDivElement>(null);
 
   const handleInputChange = (value: string) => {
-    setQuery(value);
+    setSearch(value);
 
     requestAnimationFrame(() => {
       listRef.current?.scrollTo({ top: 0 });
@@ -59,8 +58,6 @@ export function CommandPalette() {
   return (
     <div className="h-[360px] items-center justify-center w-full">
       <Command
-        value={query}
-        onValueChange={handleInputChange}
         filter={handleFilter}
         className="border border-slate-300 rounded-md shadow-md"
       >
@@ -71,7 +68,7 @@ export function CommandPalette() {
           inputMode="search"
           autoCapitalize="none"
           value={search}
-          onValueChange={setSearch}
+          onValueChange={handleInputChange}
           onKeyUp={handleInputKeyUp}
         />
         {search ? (
@@ -81,7 +78,7 @@ export function CommandPalette() {
             </Command.Empty>
             <CommandList
               ref={listRef}
-              className="max-h-[256px] h-(--cmdk-list-height) overflow-y-auto"
+              className="max-h-[256px] h-(--cmdk-list-height) overflow-auto"
             >
               {commands.map((group) =>
                 group.commands.map(
