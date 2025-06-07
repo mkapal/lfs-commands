@@ -1,5 +1,13 @@
+type CommandArgument = {
+  label: string;
+  isRequired?: boolean;
+  placeholder: string;
+  hint?: string;
+};
+
 type Command = {
   command: string;
+  args?: CommandArgument[];
   description: string;
   keywords: string[];
 };
@@ -50,188 +58,473 @@ export const commands: CommandGroup[] = [
       },
       {
         command: "track",
-        description: "Set track and config",
-        keywords: ["track", "config"],
+        args: [
+          {
+            label: "track+config",
+            isRequired: true,
+            placeholder: "XXCR",
+            hint: "XX = two-letter track short name, C = config number, R = reversed direction or open config",
+          },
+          {
+            label: "weather",
+            placeholder: "0-4",
+          },
+        ],
+        description: "Set track config and weather",
+        keywords: ["map"],
       },
       {
         command: "weather",
+        args: [
+          {
+            label: "weather",
+            isRequired: true,
+            placeholder: "0-4",
+          },
+        ],
         description: "Set lighting",
-        keywords: ["weather", "lighting"],
+        keywords: ["track"],
       },
       {
         command: "qual",
-        description: "Set qualifying minutes (0 = no qualifying)",
+        args: [
+          {
+            label: "minutes",
+            isRequired: true,
+            placeholder: "0-240",
+            hint: "0 = no qualifying",
+          },
+        ],
+        description: "Set qualifying minutes",
         keywords: ["qualifying", "qualification", "minute"],
       },
       {
         command: "laps",
-        description: "Set number of laps (0 = practice)",
-        keywords: ["laps", "number"],
+        args: [
+          {
+            label: "laps",
+            isRequired: true,
+            placeholder: "0-1000",
+            hint: "0 = practice",
+          },
+        ],
+        description: "Set number of laps",
+        keywords: ["race"],
       },
       {
         command: "hours",
+        args: [
+          {
+            label: "hours",
+            isRequired: true,
+            placeholder: "0-48",
+          },
+        ],
         description: "Set number of hours (if laps not specified)",
-        keywords: ["hours", "duration"],
+        keywords: ["race"],
       },
       {
         command: "wind",
-        description: "Set wind condition (0 no / 1 low / 2 high)",
-        keywords: ["wind", "weather"],
+        args: [
+          {
+            label: "strength",
+            isRequired: true,
+            placeholder: "0-2",
+            hint: "0 = no wind / 1 = low wind / 2 = high wind",
+          },
+        ],
+        description: "Set wind condition",
+        keywords: ["weather"],
       },
       {
         command: "maxguests",
+        args: [
+          {
+            label: "number",
+            isRequired: true,
+            placeholder: "0-79",
+          },
+        ],
         description: "Set maximum number of guests that can join host",
-        keywords: ["guests", "max"],
+        keywords: ["max", "count", "multiplayer", "server"],
       },
       {
         command: "adminslots",
-        description: "Set slots reserved for admins (0 to 8)",
-        keywords: ["admin", "slots"],
+        args: [
+          {
+            label: "number",
+            isRequired: true,
+            placeholder: "0-8",
+          },
+        ],
+        description: "Set slots reserved for admins",
+        keywords: ["server"],
       },
       {
         command: "carsmax",
+        args: [
+          {
+            label: "number",
+            isRequired: true,
+            placeholder: "1-40",
+          },
+        ],
         description: "Set maximum number of cars in a race",
-        keywords: ["cars", "max"],
+        keywords: ["cars", "max", "host", "server"],
       },
       {
         command: "carshost",
-        description: "Set maximum number of cars (real+ai) on host pc",
+        args: [
+          {
+            label: "number",
+            isRequired: true,
+            placeholder: "0-32",
+          },
+        ],
+        description: "Set maximum number of cars (real+AI) on host PC",
         keywords: ["host", "cars"],
       },
       {
         command: "carsguest",
-        description: "Set maximum number of cars (real+ai) per guest pc",
+        args: [
+          {
+            label: "number",
+            isRequired: true,
+            placeholder: "0-32",
+          },
+        ],
+        description: "Set maximum number of cars (real+AI) per guest PC",
         keywords: ["guest", "cars"],
       },
       {
         command: "pps",
-        description: "Set smoothness (3-12) maximum car updates per second",
-        keywords: ["max", "packet", "second", "update"],
+        args: [
+          {
+            label: "number",
+            isRequired: true,
+            placeholder: "3-12",
+          },
+        ],
+        description: "Set smoothness - maximum car updates per second",
+        keywords: [
+          "max",
+          "packet",
+          "second",
+          "update",
+          "multiplayer",
+          "server",
+          "host",
+        ],
       },
       {
         command: "msg",
+        args: [
+          {
+            label: "text",
+            isRequired: true,
+            placeholder: "text",
+          },
+        ],
         description: "Send a system message",
         keywords: [],
       },
       {
         command: "vote",
+        args: [
+          {
+            label: "yes-no",
+            isRequired: true,
+            placeholder: "yes|no",
+          },
+        ],
         description: "Allow or disallow guest voting",
         keywords: ["multiplayer", "kick", "ban", "vote"],
       },
       {
         command: "select",
+        args: [
+          {
+            label: "yes-no",
+            isRequired: true,
+            placeholder: "yes|no",
+          },
+        ],
         description: "Allow or disallow guests to select track",
         keywords: ["multiplayer"],
       },
       {
         command: "rstmin",
+        args: [
+          {
+            label: "seconds",
+            isRequired: true,
+            placeholder: "0-240",
+          },
+        ],
         description: "Prevent restart for X seconds after race start",
         keywords: ["restart", "race", "start"],
       },
       {
         command: "rstend",
+        args: [
+          {
+            label: "seconds",
+            isRequired: true,
+            placeholder: "0-240",
+          },
+        ],
         description: "Prevent restart for X seconds after race finish",
         keywords: ["restart", "finish", "race"],
       },
       {
         command: "specdnf",
+        args: [
+          {
+            label: "seconds",
+            isRequired: true,
+            placeholder: "0-240",
+          },
+        ],
         description: "Result blockers spectate with DNF after X seconds",
         keywords: ["spectate", "dnf", "result", "blockers", "seconds"],
       },
       {
         command: "autokick",
-        description:
-          "Set automatic action for wrong way drivers (no, kick, ban, spec)",
+        args: [
+          {
+            label: "action",
+            isRequired: true,
+            placeholder: "no|kick|ban|spec",
+          },
+        ],
+        description: "Set automatic action for wrong way drivers",
         keywords: ["spectate"],
       },
       {
         command: "midrace",
+        args: [
+          {
+            label: "yes-no",
+            isRequired: true,
+            placeholder: "yes|no",
+          },
+        ],
         description: "Allow or disallow joining during race",
         keywords: ["join", "race"],
       },
       {
         command: "mustpit",
+        args: [
+          {
+            label: "yes-no",
+            isRequired: true,
+            placeholder: "yes|no",
+          },
+        ],
         description: "Require a pit stop",
         keywords: ["pit", "pit stop", "pitstop"],
       },
       {
         command: "canrefuel",
+        args: [
+          {
+            label: "yes-no",
+            isRequired: true,
+            placeholder: "yes|no",
+          },
+        ],
         description: "Allow or disallow refuelling",
         keywords: ["fuel", "refuel"],
       },
       {
         command: "showfuel",
+        args: [
+          {
+            label: "yes-no",
+            isRequired: true,
+            placeholder: "yes|no",
+          },
+        ],
         description: "Show remote fuel gauges",
         keywords: ["fuel", "gauges"],
       },
       {
         command: "canreset",
+        args: [
+          {
+            label: "yes-no",
+            isRequired: true,
+            placeholder: "yes|no",
+          },
+        ],
         description: "Allow or disallow car reset",
         keywords: ["reset", "car"],
       },
       {
         command: "fcv",
+        args: [
+          {
+            label: "yes-no",
+            isRequired: true,
+            placeholder: "yes|no",
+          },
+        ],
         description: "Force cockpit view",
         keywords: ["view", "cockpit"],
       },
       {
         command: "cruise",
+        args: [
+          {
+            label: "yes-no",
+            isRequired: true,
+            placeholder: "yes|no",
+          },
+        ],
         description: "Allow wrong way driving",
         keywords: ["cruise", "wrong way"],
       },
       {
         command: "allowmods",
+        args: [
+          {
+            label: "yes-no",
+            isRequired: true,
+            placeholder: "yes|no",
+          },
+        ],
         description: "Allow or disallow mods",
         keywords: ["mods", "cars"],
       },
       {
         command: "unapproved",
+        args: [
+          {
+            label: "yes-no",
+            isRequired: true,
+            placeholder: "yes|no",
+          },
+        ],
         description: "Allow or disallow unapproved mods",
         keywords: ["unapproved", "mods", "cars"],
       },
       {
         command: "start",
-        description:
-          "Set default race start type (fixed, finish, reverse, random)",
-        keywords: ["start", "race"],
+        args: [
+          {
+            label: "type",
+            isRequired: true,
+            placeholder: "fixed|finish|reverse|random",
+          },
+        ],
+        description: "Set default race start type without qualifying",
+        keywords: [],
       },
       {
         command: "pass",
-        description: "Set new password (BLANK = no password)",
+        args: [
+          {
+            label: "password",
+            placeholder: "password",
+            hint: "blank = no password",
+          },
+        ],
+        description: "Set new password",
         keywords: ["password"],
       },
       {
         command: "setlap",
-        description: "Set user's current lap to Y (negative = subtract)",
-        keywords: ["lap", "user", "count", "number"],
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+          {
+            label: "lap",
+            isRequired: true,
+            placeholder: "lap",
+            hint: "negative = subtract",
+          },
+        ],
+        description: "Set user's current lap",
+        keywords: ["user", "count", "number"],
       },
       {
         command: "setstops",
-        description: "Set user's number of stops to Y",
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+          {
+            label: "stops",
+            isRequired: true,
+            placeholder: "number",
+          },
+        ],
+        description: "Set user's number of stops",
         keywords: ["number", "user", "pit", "pit stop", "pitstop"],
       },
       {
         command: "cansiren",
-        description: "Allow or disallow siren (Y = 0 or 1)",
-        keywords: ["siren", "car"],
+        args: [
+          {
+            label: "allow-disallow",
+            isRequired: true,
+            placeholder: "0|1",
+          },
+        ],
+        description: "Allow or disallow siren",
+        keywords: ["car"],
       },
       {
         command: "ujoin",
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+        ],
         description: "Add user to the race",
         keywords: ["join", "add", "user", "race"],
       },
       {
         command: "uai",
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+        ],
         description: "Add user's AI driver to the race",
         keywords: ["ai", "driver"],
       },
       {
         command: "cars",
+        args: [
+          {
+            label: "cars",
+            isRequired: true,
+            placeholder: "cars",
+            hint: "Example: XFG+XRG - allow XF GTI and XR GT",
+          },
+        ],
         description: "Define allowed cars using car strings or groups",
         keywords: ["cars", "groups", "allowed"],
       },
       {
         command: "mods",
+        args: [
+          {
+            label: "mods",
+            isRequired: true,
+            placeholder: "mods",
+          },
+        ],
         description: "Set a list of allowed mods",
         keywords: ["mods", "allowed"],
       },
@@ -242,67 +535,172 @@ export const commands: CommandGroup[] = [
       },
       {
         command: "welcome",
+        args: [
+          {
+            label: "file",
+            isRequired: true,
+            placeholder: "file.txt",
+          },
+        ],
         description: "Set welcome text file",
         keywords: ["text"],
       },
       {
         command: "tracks",
+        args: [
+          {
+            label: "file",
+            isRequired: true,
+            placeholder: "file.txt",
+          },
+        ],
         description: "Set list of allowed tracks",
         keywords: ["tracks", "allowed"],
       },
       {
         command: "autosave",
-        description: "MPR autosave (0-no / 1-manual / 2-auto)",
-        keywords: ["autosave", "mpr", "replay", "multiplayer"],
+        args: [
+          {
+            label: "mode",
+            isRequired: true,
+            placeholder: "0-2",
+            hint: "0 = no / 1 = manual / 2 = auto",
+          },
+        ],
+        description: "Multiplayer replay autosave",
+        keywords: ["mpr"],
       },
       {
         command: "save_mpr",
-        description: "Save MPR with name X (autosave must be 1 or 2)",
-        keywords: ["save", "mpr", "replay", "multiplayer"],
+        args: [
+          {
+            label: "filename",
+            isRequired: true,
+            placeholder: "filename",
+          },
+        ],
+        description:
+          "Save multiplayer replay with name X (autosave must be 1 or 2)",
+        keywords: ["save", "mpr"],
       },
       {
         command: "mprflush",
-        description: "Flush mpr to file every X seconds (0 = disable)",
-        keywords: ["flush", "mpr", "replay", "multiplayer"],
+        args: [
+          {
+            label: "seconds",
+            isRequired: true,
+            placeholder: "0-10",
+            hint: "0 = disable",
+          },
+        ],
+        description: "Flush multiplayer replay to file every X seconds",
+        keywords: ["flush", "mpr"],
       },
       {
         command: "ndebug",
-        description: "Enable or disable network debug (no / yes)",
-        keywords: ["network", "debug"],
+        args: [
+          {
+            label: "yes-no",
+            isRequired: true,
+            placeholder: "yes|no",
+          },
+        ],
+        description: "Enable or disable network debug",
+        keywords: ["multiplayer", "server", "host"],
       },
       {
         command: "h_mass",
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+          {
+            label: "kilograms",
+            isRequired: true,
+            placeholder: "0-200",
+          },
+        ],
         description: "Set added mass for user's car",
-        keywords: ["handicap", "mass", "car"],
+        keywords: ["handicap"],
       },
       {
         command: "h_tres",
-        description: "Set restriction for user's car",
-        keywords: ["handicap", "restriction", "intake"],
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+          {
+            label: "percentage",
+            isRequired: true,
+            placeholder: "0-50",
+          },
+        ],
+        description: "Set intake restriction for user's car",
+        keywords: ["handicap", "restriction"],
       },
       {
         command: "teamarrows",
+        args: [
+          {
+            label: "yes-no",
+            isRequired: true,
+            placeholder: "yes|no",
+          },
+        ],
         description:
           "Enable or disable arrows on non-race small map using name colour",
         keywords: ["team", "map", "color", "colour"],
       },
       {
         command: "axlist",
-        description: "Get list of layouts for track X",
+        args: [
+          {
+            label: "track+config",
+            isRequired: true,
+            placeholder: "XXCR",
+            hint: "XX = two-letter track short name, C = config number, R = reversed direction or open config",
+          },
+        ],
+        description: "Get list of layouts for track",
         keywords: ["autocross", "autox", "layout", "track"],
       },
       {
         command: "axload",
-        description: "Load layout X on host",
+        args: [
+          {
+            label: "filename",
+            isRequired: true,
+            placeholder: "filename",
+          },
+        ],
+        description: "Load layout on host",
         keywords: ["autocross", "autox", "layout", "track", "server"],
       },
       {
         command: "axsave",
-        description: "Save layout X on host",
+        args: [
+          {
+            label: "filename",
+            isRequired: true,
+            placeholder: "filename",
+          },
+        ],
+        description: "Save layout on host",
         keywords: ["autocross", "autox", "layout", "track", "server"],
       },
       {
         command: "axlaps",
+        args: [
+          {
+            label: "laps",
+            isRequired: true,
+            placeholder: "0-1000",
+          },
+        ],
         description: "Set autocross number of laps",
         keywords: ["autocross", "autox", "laps"],
       },
@@ -313,26 +711,67 @@ export const commands: CommandGroup[] = [
       },
       {
         command: "spec",
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+        ],
         description: "Make user X join the spectators",
         keywords: ["spectate"],
       },
       {
         command: "kick",
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+        ],
         description: "Disconnect user X",
         keywords: ["admin"],
       },
       {
         command: "ban",
-        description: "Ban user X for Y days (0 = 12 hours)",
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+          {
+            label: "days",
+            isRequired: true,
+            placeholder: "0-999",
+            hint: "0 = 12 hours",
+          },
+        ],
+        description: "Ban user for a given number of days",
         keywords: ["admin"],
       },
       {
         command: "unban",
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+        ],
         description: "Remove ban on user X",
         keywords: ["admin"],
       },
       {
         command: "pitlane",
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+        ],
         description: "Send user X to the pit lane",
         keywords: [],
       },
@@ -343,36 +782,85 @@ export const commands: CommandGroup[] = [
       },
       {
         command: "p_dt",
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+        ],
         description: "Give drive through penalty",
         keywords: ["penalty", "drive through"],
       },
       {
         command: "p_sg",
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+        ],
         description: "Give stop-go penalty",
         keywords: ["penalty", "stop&go"],
       },
       {
         command: "p_30",
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+        ],
         description: "Give 30 second time penalty",
         keywords: ["penalty"],
       },
       {
         command: "p_45",
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+        ],
         description: "Give 45 second time penalty",
         keywords: ["penalty"],
       },
       {
         command: "p_clear",
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+        ],
         description: "Clear a time or pit penalty",
         keywords: ["penalty", "clear", "pitstop", "pit stop"],
       },
       {
         command: "rcm",
+        args: [
+          {
+            label: "message",
+            isRequired: true,
+            placeholder: "message",
+          },
+        ],
         description: "Set a Race Control Message to be sent",
         keywords: ["central text"],
       },
       {
         command: "rcm_ply",
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+        ],
         description: "Send the RCM to USERNAME",
         keywords: ["central text", "player"],
       },
@@ -383,6 +871,13 @@ export const commands: CommandGroup[] = [
       },
       {
         command: "rcc_ply",
+        args: [
+          {
+            label: "username",
+            isRequired: true,
+            placeholder: "username",
+          },
+        ],
         description: "Clear USERNAME's RCM",
         keywords: ["central text", "player"],
       },
@@ -413,27 +908,62 @@ export const commands: CommandGroup[] = [
       },
       {
         command: "car",
-        description: "Select car (e.g. XRT)",
+        args: [
+          {
+            label: "car",
+            isRequired: true,
+            placeholder: "car",
+            hint: "e.g. XRT",
+          },
+        ],
+        description: "Select car",
         keywords: [],
       },
       {
         command: "setup",
-        description: "Select setup X (default if no X)",
+        args: [
+          {
+            label: "name",
+            placeholder: "name",
+            hint: "Default if no name",
+          },
+        ],
+        description: "Select setup",
         keywords: [],
       },
       {
         command: "colour",
-        description: "Select colour X (default if no X)",
+        args: [
+          {
+            label: "name",
+            placeholder: "name",
+            hint: "Default if no name",
+          },
+        ],
+        description: "Select colour",
         keywords: ["color"],
       },
       {
         command: "join",
+        args: [
+          {
+            label: "server",
+            placeholder: "server",
+            hint: "Server name if on entry screen",
+          },
+        ],
         description: "Join the race or an internet server from entry screen",
         keywords: ["multiplayer"],
       },
       {
         command: "ai",
-        description: "Add AI driver (can specify NAME)",
+        args: [
+          {
+            label: "name",
+            placeholder: "name",
+          },
+        ],
+        description: "Add AI driver",
         keywords: [],
       },
       {
@@ -448,26 +978,62 @@ export const commands: CommandGroup[] = [
       },
       {
         command: "player",
-        description: "Select existing player X",
+        args: [
+          {
+            label: "name",
+            isRequired: true,
+            placeholder: "name",
+          },
+        ],
+        description: "Select existing player",
         keywords: [],
       },
       {
         command: "lang",
-        description: "Load language X (data\\language\\X.txt)",
-        keywords: ["text", "file"],
+        args: [
+          {
+            label: "name",
+            isRequired: true,
+            placeholder: "name",
+            hint: "data/language/name.txt",
+          },
+        ],
+        description: "Load language",
+        keywords: ["text", "file", "translation"],
       },
       {
         command: "horn",
-        description: "Select horn type X (1 to 5)",
-        keywords: ["car"],
+        args: [
+          {
+            label: "type",
+            isRequired: true,
+            placeholder: "1-5",
+          },
+        ],
+        description: "Select car horn type",
+        keywords: [],
       },
       {
         command: "siren",
+        args: [
+          {
+            label: "mode",
+            isRequired: true,
+            placeholder: "off|slow|fast",
+          },
+        ],
         description: "Switch siren (if allowed by host)",
         keywords: ["server", "car"],
       },
       {
         command: "cp",
+        args: [
+          {
+            label: "view",
+            placeholder: "view",
+            hint: "Restore previously copied free view",
+          },
+        ],
         description:
           "Copy free view text to clipboard or restore previously copied free view",
         keywords: ["Shift+U", "camera"],
@@ -484,7 +1050,19 @@ export const commands: CommandGroup[] = [
       },
       {
         command: "aiset",
-        description: "Set AI driver to skill level X (1 to 5)",
+        args: [
+          {
+            label: "name",
+            isRequired: true,
+            placeholder: "name",
+          },
+          {
+            label: "level",
+            isRequired: true,
+            placeholder: "1-5",
+          },
+        ],
+        description: "Set AI driver to skill level",
         keywords: [],
       },
       {
