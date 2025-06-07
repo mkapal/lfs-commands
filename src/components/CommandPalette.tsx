@@ -87,7 +87,7 @@ export function CommandPalette() {
                 group.commands.map(
                   ({ args, command, description, keywords }) => (
                     <CommandItem
-                      key={`${group.name}-${command}`}
+                      key={`${group.name}-${command}-${keywords.join("-")}`}
                       value={`/${command} ${description}`}
                       keywords={keywords}
                       className="data-[selected=true]:bg-sky-100 py-2 px-3 first:border-t border-slate-300 cursor-pointer"
@@ -96,33 +96,30 @@ export function CommandPalette() {
                         <div className="font-medium flex items-center gap-2">
                           <kbd className="rounded-sm border border-slate-400 bg-slate-100 px-1 font-mono flex items-center">
                             /{command}
-                            {args?.map(
-                              ({ label, placeholder, isRequired, hint }) => (
-                                <Fragment key={label}>
-                                  &nbsp;
-                                  <div
-                                    className={cn(
-                                      "text-black rounded-sm bg-slate-300 text-sm px-1 relative",
-                                      {
-                                        "after:content-['?'] after:absolute after:-top-2 after:-right-2 after:bg-slate-600 after:w-3 after:h-3 after:rounded-full after:flex after:justify-center after:items-center after:text-slate-50 after:text-[9px] after:leading-[10px]":
-                                          !isRequired,
-                                        "cursor-help": hint || !isRequired,
-                                      },
-                                    )}
-                                    title={
-                                      hint ||
-                                      (!isRequired
-                                        ? "Optional argument"
-                                        : undefined)
-                                    }
-                                  >
-                                    {!isRequired && "["}
-                                    {placeholder}
-                                    {!isRequired && "]"}
-                                  </div>
-                                </Fragment>
-                              ),
-                            )}
+                            {args?.map(({ placeholder, isRequired, hint }) => (
+                              <Fragment key={placeholder}>
+                                &nbsp;
+                                <div
+                                  className={cn(
+                                    "text-black rounded-sm bg-slate-300 text-sm px-1 relative",
+                                    {
+                                      "cursor-help after:content-['?'] after:absolute after:-top-2 after:-right-2 after:bg-slate-600 after:w-3 after:h-3 after:rounded-full after:flex after:justify-center after:items-center after:text-slate-50 after:text-[9px] after:leading-[10px]":
+                                        hint || !isRequired,
+                                    },
+                                  )}
+                                  title={
+                                    hint ||
+                                    (!isRequired
+                                      ? "Optional argument"
+                                      : undefined)
+                                  }
+                                >
+                                  {!isRequired && "["}
+                                  {placeholder}
+                                  {!isRequired && "]"}
+                                </div>
+                              </Fragment>
+                            ))}
                           </kbd>
                           <div className="text-sm text-slate-900">
                             {description}

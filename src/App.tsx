@@ -11,7 +11,7 @@ export function App() {
           Speed Commands
         </h1>
       </div>
-      <div className="max-w-[730px] w-full justify-center flex flex-col items-center">
+      <div className="max-w-[860px] w-full justify-center flex flex-col items-center">
         <CommandPalette />
       </div>
       <ul className="flex items-center justify-end flex-auto flex-col text-sm">

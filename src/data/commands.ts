@@ -1,7 +1,6 @@
 type CommandArgument = {
-  label: string;
-  isRequired?: boolean;
   placeholder: string;
+  isRequired?: boolean;
   hint?: string;
 };
 
@@ -60,13 +59,11 @@ export const commands: CommandGroup[] = [
         command: "track",
         args: [
           {
-            label: "track+config",
-            isRequired: true,
             placeholder: "XXCR",
+            isRequired: true,
             hint: "XX = two-letter track short name, C = config number, R = reversed direction or open config",
           },
           {
-            label: "weather",
             placeholder: "0-4",
           },
         ],
@@ -77,9 +74,8 @@ export const commands: CommandGroup[] = [
         command: "weather",
         args: [
           {
-            label: "weather",
-            isRequired: true,
             placeholder: "0-4",
+            isRequired: true,
           },
         ],
         description: "Set lighting",
@@ -89,9 +85,8 @@ export const commands: CommandGroup[] = [
         command: "qual",
         args: [
           {
-            label: "minutes",
-            isRequired: true,
             placeholder: "0-240",
+            isRequired: true,
             hint: "0 = no qualifying",
           },
         ],
@@ -102,9 +97,8 @@ export const commands: CommandGroup[] = [
         command: "laps",
         args: [
           {
-            label: "laps",
-            isRequired: true,
             placeholder: "0-1000",
+            isRequired: true,
             hint: "0 = practice",
           },
         ],
@@ -115,9 +109,8 @@ export const commands: CommandGroup[] = [
         command: "hours",
         args: [
           {
-            label: "hours",
-            isRequired: true,
             placeholder: "0-48",
+            isRequired: true,
           },
         ],
         description: "Set number of hours (if laps not specified)",
@@ -127,9 +120,8 @@ export const commands: CommandGroup[] = [
         command: "wind",
         args: [
           {
-            label: "strength",
-            isRequired: true,
             placeholder: "0-2",
+            isRequired: true,
             hint: "0 = no wind / 1 = low wind / 2 = high wind",
           },
         ],
@@ -140,9 +132,8 @@ export const commands: CommandGroup[] = [
         command: "maxguests",
         args: [
           {
-            label: "number",
-            isRequired: true,
             placeholder: "0-79",
+            isRequired: true,
           },
         ],
         description: "Set maximum number of guests that can join host",
@@ -152,9 +143,8 @@ export const commands: CommandGroup[] = [
         command: "adminslots",
         args: [
           {
-            label: "number",
-            isRequired: true,
             placeholder: "0-8",
+            isRequired: true,
           },
         ],
         description: "Set slots reserved for admins",
@@ -164,9 +154,8 @@ export const commands: CommandGroup[] = [
         command: "carsmax",
         args: [
           {
-            label: "number",
-            isRequired: true,
             placeholder: "1-40",
+            isRequired: true,
           },
         ],
         description: "Set maximum number of cars in a race",
@@ -176,9 +165,8 @@ export const commands: CommandGroup[] = [
         command: "carshost",
         args: [
           {
-            label: "number",
-            isRequired: true,
             placeholder: "0-32",
+            isRequired: true,
           },
         ],
         description: "Set maximum number of cars (real+AI) on host PC",
@@ -188,9 +176,8 @@ export const commands: CommandGroup[] = [
         command: "carsguest",
         args: [
           {
-            label: "number",
-            isRequired: true,
             placeholder: "0-32",
+            isRequired: true,
           },
         ],
         description: "Set maximum number of cars (real+AI) per guest PC",
@@ -200,9 +187,8 @@ export const commands: CommandGroup[] = [
         command: "pps",
         args: [
           {
-            label: "number",
-            isRequired: true,
             placeholder: "3-12",
+            isRequired: true,
           },
         ],
         description: "Set smoothness - maximum car updates per second",
@@ -220,9 +206,8 @@ export const commands: CommandGroup[] = [
         command: "msg",
         args: [
           {
-            label: "text",
-            isRequired: true,
             placeholder: "text",
+            isRequired: true,
           },
         ],
         description: "Send a system message",
@@ -232,9 +217,8 @@ export const commands: CommandGroup[] = [
         command: "vote",
         args: [
           {
-            label: "yes-no",
-            isRequired: true,
             placeholder: "yes|no",
+            isRequired: true,
           },
         ],
         description: "Allow or disallow guest voting",
@@ -244,9 +228,8 @@ export const commands: CommandGroup[] = [
         command: "select",
         args: [
           {
-            label: "yes-no",
-            isRequired: true,
             placeholder: "yes|no",
+            isRequired: true,
           },
         ],
         description: "Allow or disallow guests to select track",
@@ -256,9 +239,8 @@ export const commands: CommandGroup[] = [
         command: "rstmin",
         args: [
           {
-            label: "seconds",
-            isRequired: true,
             placeholder: "0-240",
+            isRequired: true,
           },
         ],
         description: "Prevent restart for X seconds after race start",
@@ -268,9 +250,8 @@ export const commands: CommandGroup[] = [
         command: "rstend",
         args: [
           {
-            label: "seconds",
-            isRequired: true,
             placeholder: "0-240",
+            isRequired: true,
           },
         ],
         description: "Prevent restart for X seconds after race finish",
@@ -280,9 +261,8 @@ export const commands: CommandGroup[] = [
         command: "specdnf",
         args: [
           {
-            label: "seconds",
-            isRequired: true,
             placeholder: "0-240",
+            isRequired: true,
           },
         ],
         description: "Result blockers spectate with DNF after X seconds",
@@ -292,9 +272,8 @@ export const commands: CommandGroup[] = [
         command: "autokick",
         args: [
           {
-            label: "action",
-            isRequired: true,
             placeholder: "no|kick|ban|spec",
+            isRequired: true,
           },
         ],
         description: "Set automatic action for wrong way drivers",
@@ -304,9 +283,8 @@ export const commands: CommandGroup[] = [
         command: "midrace",
         args: [
           {
-            label: "yes-no",
-            isRequired: true,
             placeholder: "yes|no",
+            isRequired: true,
           },
         ],
         description: "Allow or disallow joining during race",
@@ -316,9 +294,8 @@ export const commands: CommandGroup[] = [
         command: "mustpit",
         args: [
           {
-            label: "yes-no",
-            isRequired: true,
             placeholder: "yes|no",
+            isRequired: true,
           },
         ],
         description: "Require a pit stop",
@@ -328,9 +305,8 @@ export const commands: CommandGroup[] = [
         command: "canrefuel",
         args: [
           {
-            label: "yes-no",
-            isRequired: true,
             placeholder: "yes|no",
+            isRequired: true,
           },
         ],
         description: "Allow or disallow refuelling",
@@ -340,9 +316,8 @@ export const commands: CommandGroup[] = [
         command: "showfuel",
         args: [
           {
-            label: "yes-no",
-            isRequired: true,
             placeholder: "yes|no",
+            isRequired: true,
           },
         ],
         description: "Show remote fuel gauges",
@@ -352,9 +327,8 @@ export const commands: CommandGroup[] = [
         command: "canreset",
         args: [
           {
-            label: "yes-no",
-            isRequired: true,
             placeholder: "yes|no",
+            isRequired: true,
           },
         ],
         description: "Allow or disallow car reset",
@@ -364,9 +338,8 @@ export const commands: CommandGroup[] = [
         command: "fcv",
         args: [
           {
-            label: "yes-no",
-            isRequired: true,
             placeholder: "yes|no",
+            isRequired: true,
           },
         ],
         description: "Force cockpit view",
@@ -376,9 +349,8 @@ export const commands: CommandGroup[] = [
         command: "cruise",
         args: [
           {
-            label: "yes-no",
-            isRequired: true,
             placeholder: "yes|no",
+            isRequired: true,
           },
         ],
         description: "Allow wrong way driving",
@@ -388,9 +360,8 @@ export const commands: CommandGroup[] = [
         command: "allowmods",
         args: [
           {
-            label: "yes-no",
-            isRequired: true,
             placeholder: "yes|no",
+            isRequired: true,
           },
         ],
         description: "Allow or disallow mods",
@@ -400,9 +371,8 @@ export const commands: CommandGroup[] = [
         command: "unapproved",
         args: [
           {
-            label: "yes-no",
-            isRequired: true,
             placeholder: "yes|no",
+            isRequired: true,
           },
         ],
         description: "Allow or disallow unapproved mods",
@@ -412,9 +382,8 @@ export const commands: CommandGroup[] = [
         command: "start",
         args: [
           {
-            label: "type",
-            isRequired: true,
             placeholder: "fixed|finish|reverse|random",
+            isRequired: true,
           },
         ],
         description: "Set default race start type without qualifying",
@@ -424,7 +393,6 @@ export const commands: CommandGroup[] = [
         command: "pass",
         args: [
           {
-            label: "password",
             placeholder: "password",
             hint: "blank = no password",
           },
@@ -436,14 +404,12 @@ export const commands: CommandGroup[] = [
         command: "setlap",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
           {
-            label: "lap",
-            isRequired: true,
             placeholder: "lap",
+            isRequired: true,
             hint: "negative = subtract",
           },
         ],
@@ -454,14 +420,12 @@ export const commands: CommandGroup[] = [
         command: "setstops",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
           {
-            label: "stops",
-            isRequired: true,
             placeholder: "number",
+            isRequired: true,
           },
         ],
         description: "Set user's number of stops",
@@ -471,9 +435,8 @@ export const commands: CommandGroup[] = [
         command: "cansiren",
         args: [
           {
-            label: "allow-disallow",
-            isRequired: true,
             placeholder: "0|1",
+            isRequired: true,
           },
         ],
         description: "Allow or disallow siren",
@@ -483,9 +446,8 @@ export const commands: CommandGroup[] = [
         command: "ujoin",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
         ],
         description: "Add user to the race",
@@ -495,9 +457,8 @@ export const commands: CommandGroup[] = [
         command: "uai",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
         ],
         description: "Add user's AI driver to the race",
@@ -507,9 +468,8 @@ export const commands: CommandGroup[] = [
         command: "cars",
         args: [
           {
-            label: "cars",
-            isRequired: true,
             placeholder: "cars",
+            isRequired: true,
             hint: "Example: XFG+XRG - allow XF GTI and XR GT",
           },
         ],
@@ -520,9 +480,8 @@ export const commands: CommandGroup[] = [
         command: "mods",
         args: [
           {
-            label: "mods",
-            isRequired: true,
             placeholder: "mods",
+            isRequired: true,
           },
         ],
         description: "Set a list of allowed mods",
@@ -537,9 +496,8 @@ export const commands: CommandGroup[] = [
         command: "welcome",
         args: [
           {
-            label: "file",
-            isRequired: true,
             placeholder: "file.txt",
+            isRequired: true,
           },
         ],
         description: "Set welcome text file",
@@ -549,9 +507,8 @@ export const commands: CommandGroup[] = [
         command: "tracks",
         args: [
           {
-            label: "file",
-            isRequired: true,
             placeholder: "file.txt",
+            isRequired: true,
           },
         ],
         description: "Set list of allowed tracks",
@@ -561,9 +518,8 @@ export const commands: CommandGroup[] = [
         command: "autosave",
         args: [
           {
-            label: "mode",
-            isRequired: true,
             placeholder: "0-2",
+            isRequired: true,
             hint: "0 = no / 1 = manual / 2 = auto",
           },
         ],
@@ -574,9 +530,8 @@ export const commands: CommandGroup[] = [
         command: "save_mpr",
         args: [
           {
-            label: "filename",
-            isRequired: true,
             placeholder: "filename",
+            isRequired: true,
           },
         ],
         description:
@@ -587,9 +542,8 @@ export const commands: CommandGroup[] = [
         command: "mprflush",
         args: [
           {
-            label: "seconds",
-            isRequired: true,
             placeholder: "0-10",
+            isRequired: true,
             hint: "0 = disable",
           },
         ],
@@ -600,9 +554,8 @@ export const commands: CommandGroup[] = [
         command: "ndebug",
         args: [
           {
-            label: "yes-no",
-            isRequired: true,
             placeholder: "yes|no",
+            isRequired: true,
           },
         ],
         description: "Enable or disable network debug",
@@ -612,14 +565,12 @@ export const commands: CommandGroup[] = [
         command: "h_mass",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
           {
-            label: "kilograms",
-            isRequired: true,
             placeholder: "0-200",
+            isRequired: true,
           },
         ],
         description: "Set added mass for user's car",
@@ -629,14 +580,12 @@ export const commands: CommandGroup[] = [
         command: "h_tres",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
           {
-            label: "percentage",
-            isRequired: true,
             placeholder: "0-50",
+            isRequired: true,
           },
         ],
         description: "Set intake restriction for user's car",
@@ -646,9 +595,8 @@ export const commands: CommandGroup[] = [
         command: "teamarrows",
         args: [
           {
-            label: "yes-no",
-            isRequired: true,
             placeholder: "yes|no",
+            isRequired: true,
           },
         ],
         description:
@@ -659,9 +607,8 @@ export const commands: CommandGroup[] = [
         command: "axlist",
         args: [
           {
-            label: "track+config",
-            isRequired: true,
             placeholder: "XXCR",
+            isRequired: true,
             hint: "XX = two-letter track short name, C = config number, R = reversed direction or open config",
           },
         ],
@@ -672,9 +619,8 @@ export const commands: CommandGroup[] = [
         command: "axload",
         args: [
           {
-            label: "filename",
-            isRequired: true,
             placeholder: "filename",
+            isRequired: true,
           },
         ],
         description: "Load layout on host",
@@ -684,9 +630,8 @@ export const commands: CommandGroup[] = [
         command: "axsave",
         args: [
           {
-            label: "filename",
-            isRequired: true,
             placeholder: "filename",
+            isRequired: true,
           },
         ],
         description: "Save layout on host",
@@ -696,9 +641,8 @@ export const commands: CommandGroup[] = [
         command: "axlaps",
         args: [
           {
-            label: "laps",
-            isRequired: true,
             placeholder: "0-1000",
+            isRequired: true,
           },
         ],
         description: "Set autocross number of laps",
@@ -713,9 +657,8 @@ export const commands: CommandGroup[] = [
         command: "spec",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
         ],
         description: "Make user X join the spectators",
@@ -725,9 +668,8 @@ export const commands: CommandGroup[] = [
         command: "kick",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
         ],
         description: "Disconnect user X",
@@ -737,14 +679,12 @@ export const commands: CommandGroup[] = [
         command: "ban",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
           {
-            label: "days",
-            isRequired: true,
             placeholder: "0-999",
+            isRequired: true,
             hint: "0 = 12 hours",
           },
         ],
@@ -755,9 +695,8 @@ export const commands: CommandGroup[] = [
         command: "unban",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
         ],
         description: "Remove ban on user X",
@@ -767,9 +706,8 @@ export const commands: CommandGroup[] = [
         command: "pitlane",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
         ],
         description: "Send user X to the pit lane",
@@ -784,9 +722,8 @@ export const commands: CommandGroup[] = [
         command: "p_dt",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
         ],
         description: "Give drive through penalty",
@@ -796,9 +733,8 @@ export const commands: CommandGroup[] = [
         command: "p_sg",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
         ],
         description: "Give stop-go penalty",
@@ -808,9 +744,8 @@ export const commands: CommandGroup[] = [
         command: "p_30",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
         ],
         description: "Give 30 second time penalty",
@@ -820,9 +755,8 @@ export const commands: CommandGroup[] = [
         command: "p_45",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
         ],
         description: "Give 45 second time penalty",
@@ -832,9 +766,8 @@ export const commands: CommandGroup[] = [
         command: "p_clear",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
         ],
         description: "Clear a time or pit penalty",
@@ -844,9 +777,8 @@ export const commands: CommandGroup[] = [
         command: "rcm",
         args: [
           {
-            label: "message",
-            isRequired: true,
             placeholder: "message",
+            isRequired: true,
           },
         ],
         description: "Set a Race Control Message to be sent",
@@ -856,9 +788,8 @@ export const commands: CommandGroup[] = [
         command: "rcm_ply",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
         ],
         description: "Send the RCM to USERNAME",
@@ -873,9 +804,8 @@ export const commands: CommandGroup[] = [
         command: "rcc_ply",
         args: [
           {
-            label: "username",
-            isRequired: true,
             placeholder: "username",
+            isRequired: true,
           },
         ],
         description: "Clear USERNAME's RCM",
@@ -910,9 +840,8 @@ export const commands: CommandGroup[] = [
         command: "car",
         args: [
           {
-            label: "car",
-            isRequired: true,
             placeholder: "car",
+            isRequired: true,
             hint: "e.g. XRT",
           },
         ],
@@ -923,7 +852,6 @@ export const commands: CommandGroup[] = [
         command: "setup",
         args: [
           {
-            label: "name",
             placeholder: "name",
             hint: "Default if no name",
           },
@@ -935,7 +863,6 @@ export const commands: CommandGroup[] = [
         command: "colour",
         args: [
           {
-            label: "name",
             placeholder: "name",
             hint: "Default if no name",
           },
@@ -947,7 +874,6 @@ export const commands: CommandGroup[] = [
         command: "join",
         args: [
           {
-            label: "server",
             placeholder: "server",
             hint: "Server name if on entry screen",
           },
@@ -959,7 +885,6 @@ export const commands: CommandGroup[] = [
         command: "ai",
         args: [
           {
-            label: "name",
             placeholder: "name",
           },
         ],
@@ -980,9 +905,8 @@ export const commands: CommandGroup[] = [
         command: "player",
         args: [
           {
-            label: "name",
-            isRequired: true,
             placeholder: "name",
+            isRequired: true,
           },
         ],
         description: "Select existing player",
@@ -992,9 +916,8 @@ export const commands: CommandGroup[] = [
         command: "lang",
         args: [
           {
-            label: "name",
-            isRequired: true,
             placeholder: "name",
+            isRequired: true,
             hint: "data/language/name.txt",
           },
         ],
@@ -1005,9 +928,8 @@ export const commands: CommandGroup[] = [
         command: "horn",
         args: [
           {
-            label: "type",
-            isRequired: true,
             placeholder: "1-5",
+            isRequired: true,
           },
         ],
         description: "Select car horn type",
@@ -1017,9 +939,8 @@ export const commands: CommandGroup[] = [
         command: "siren",
         args: [
           {
-            label: "mode",
-            isRequired: true,
             placeholder: "off|slow|fast",
+            isRequired: true,
           },
         ],
         description: "Switch siren (if allowed by host)",
@@ -1029,7 +950,6 @@ export const commands: CommandGroup[] = [
         command: "cp",
         args: [
           {
-            label: "view",
             placeholder: "view",
             hint: "Restore previously copied free view",
           },
@@ -1052,14 +972,12 @@ export const commands: CommandGroup[] = [
         command: "aiset",
         args: [
           {
-            label: "name",
-            isRequired: true,
             placeholder: "name",
+            isRequired: true,
           },
           {
-            label: "level",
-            isRequired: true,
             placeholder: "1-5",
+            isRequired: true,
           },
         ],
         description: "Set AI driver to skill level",
@@ -1067,18 +985,36 @@ export const commands: CommandGroup[] = [
       },
       {
         command: "aiset_all",
-        description: "Set all local AI drivers to skill level X",
+        description: "Set all local AI drivers to skill level",
+        args: [
+          {
+            placeholder: "1-5",
+            isRequired: true,
+          },
+        ],
         keywords: [],
       },
       {
         command: "spr",
-        description: "Run a SP replay from entry (front end) screen",
-        keywords: ["single player"],
+        description: "Run a single player replay from entry (front end) screen",
+        args: [
+          {
+            placeholder: "filename",
+            isRequired: true,
+          },
+        ],
+        keywords: [],
       },
       {
         command: "mpr",
-        description: "Run a MP replay from entry (front end) screen",
-        keywords: ["multiplayer"],
+        args: [
+          {
+            placeholder: "filename",
+            isRequired: true,
+          },
+        ],
+        description: "Run a multiplayer replay from entry (front end) screen",
+        keywords: [],
       },
       {
         command: "end",
@@ -1088,21 +1024,44 @@ export const commands: CommandGroup[] = [
       {
         command: "sp",
         description: "Go into single player from entry screen",
-        keywords: ["single player"],
+        keywords: [],
       },
       {
         command: "mp",
+        args: [
+          {
+            placeholder: "ip",
+            isRequired: true,
+          },
+          {
+            placeholder: "port",
+            isRequired: true,
+            hint: "0-65536",
+          },
+        ],
         description: "Join a local server from entry screen",
         keywords: ["multiplayer", "host"],
       },
       {
         command: "mprlag",
-        description: "Simulate packet delay of X ms (+ no smoothing)",
+        description: "Simulate packet delay in milliseconds",
+        args: [
+          {
+            placeholder: "ms",
+            isRequired: true,
+          },
+        ],
         keywords: ["multiplayer", "debug"],
       },
       {
         command: "mprsmooth",
-        description: "Disable or enable input smoothing (0 / 1)",
+        args: [
+          {
+            placeholder: "0|1",
+            isRequired: true,
+          },
+        ],
+        description: "Disable or enable input smoothing",
         keywords: ["multiplayer"],
       },
       {
@@ -1117,36 +1076,78 @@ export const commands: CommandGroup[] = [
       },
       {
         command: "spectv",
-        description: "Auto select TV camera on spectate (no/yes)",
-        keywords: [],
+        args: [
+          {
+            placeholder: "yes|no",
+            isRequired: true,
+          },
+        ],
+        description: "Auto select TV camera on spectate",
+        keywords: ["view"],
       },
       {
         command: "speedreduce",
-        description: "Set total speed steer reduction (0 to 1)",
+        args: [
+          {
+            placeholder: "0-1",
+            isRequired: true,
+          },
+        ],
+        description: "Set total speed steer reduction",
         keywords: ["keyboard", "controls"],
       },
       {
         command: "reducehalf",
+        args: [
+          {
+            placeholder: "speed",
+            isRequired: true,
+          },
+        ],
         description: "Set speed in m/s for half of reduction",
         keywords: ["keyboard", "controls"],
       },
       {
         command: "loadkb",
-        description: "Load keyboard settings file (data\\misc\\X.kbs)",
+        args: [
+          {
+            placeholder: "filename",
+            isRequired: true,
+          },
+        ],
+        description: "Load keyboard settings file (data/misc/X.kbs)",
         keywords: ["controls"],
       },
       {
         command: "savekb",
-        description: "Save keyboard settings file (data\\misc\\X.kbs)",
+        args: [
+          {
+            placeholder: "filename",
+            isRequired: true,
+          },
+        ],
+        description: "Save keyboard settings file (data/misc/X.kbs)",
         keywords: ["controls"],
       },
       {
         command: "out",
+        args: [
+          {
+            placeholder: "message",
+            isRequired: true,
+          },
+        ],
         description: "Only seen by external programs",
         keywords: ["insim"],
       },
       {
         command: "log",
+        args: [
+          {
+            placeholder: "file.txt",
+            isRequired: true,
+          },
+        ],
         description: "Set message log file",
         keywords: ["chat"],
       },
@@ -1167,13 +1168,29 @@ export const commands: CommandGroup[] = [
       },
       {
         command: "window",
+        args: [
+          {
+            placeholder: "width",
+            isRequired: true,
+          },
+          {
+            placeholder: "height",
+            isRequired: true,
+          },
+        ],
         description:
           "Set window client area width and height or adjust window (min/max/monitor/virtual)",
         keywords: ["size"],
       },
       {
         command: "status",
-        description: "Sets status screen (none|F9|F10|F11|F12|next|prev)",
+        args: [
+          {
+            placeholder: "none|F9|F10|F11|F12|next|prev",
+            isRequired: true,
+          },
+        ],
+        description: "Sets status screen",
         keywords: [
           "display",
           "tyre",
@@ -1186,189 +1203,552 @@ export const commands: CommandGroup[] = [
       },
       {
         command: "light ind",
-        description: "Switch indicators/hazard",
+        args: [
+          {
+            placeholder: "off|left|right|all",
+            isRequired: true,
+          },
+        ],
+        description: "Switch indicators|hazard",
         keywords: ["turn signal", "blinker", "car"],
       },
       {
         command: "light head",
-        description:
-          "Switch headlights (off/side/low/high/low_off/low_high/next/prev)",
+        args: [
+          {
+            placeholder: "off|side|low|high|low_off|low_high|next|prev",
+            isRequired: true,
+          },
+        ],
+        description: "Switch headlights",
         keywords: ["beam", "car"],
       },
       {
         command: "light",
-        description: "Switch fog/extra lights (off/on/toggle)",
+        args: [
+          {
+            placeholder: "rfog|ffog|extra",
+            isRequired: true,
+          },
+          {
+            placeholder: "off|on|toggle",
+            isRequired: true,
+          },
+        ],
+        description: "Switch fog/extra lights",
         keywords: ["car"],
       },
       {
         command: "light all",
+        args: [
+          {
+            placeholder: "off|on",
+            isRequired: true,
+          },
+        ],
         description: "Switch all switchable lights off/on at once",
         keywords: ["car"],
       },
       {
-        command: "pitins",
-        description:
-          "Set pit stop instructions (e.g., tyre changes, fuel, repair, pressure)",
-        keywords: ["pitstop", "pit stop", "tyres", "tires"],
+        command: "pitins fuel",
+        args: [
+          {
+            placeholder: "percent",
+            isRequired: true,
+          },
+        ],
+        description: "Set pit instructions for refuel",
+        keywords: ["pitstop", "tyres", "tires"],
       },
       {
-        command: "liveset",
-        description: "Adjust live car settings (brake balance, anti-roll bars)",
+        command: "pitins tyres",
+        args: [
+          {
+            placeholder: "always|0-100",
+            isRequired: true,
+          },
+        ],
+        description: "Set pit instructions for tyre change depending on wear",
+        keywords: ["pitstop", "tyres", "tires"],
+      },
+      {
+        command: "pitins repair",
+        args: [
+          {
+            placeholder: "yes|no",
+            isRequired: false,
+          },
+        ],
+        description: "Set pit instructions for damage repair",
+        keywords: ["pitstop"],
+      },
+      {
+        command: "pitins symmetric",
+        args: [
+          {
+            placeholder: "yes|no",
+            isRequired: false,
+          },
+        ],
+        description: "Set pit instructions for symmetric setup changes",
+        keywords: ["pitstop"],
+      },
+      {
+        command: "pitins",
+        args: [
+          {
+            placeholder: "ftyre|rtyre",
+            isRequired: true,
+          },
+          {
+            placeholder: "r1|r2|r3|r4|super|normal|knobbly|hybrid",
+            isRequired: true,
+          },
+        ],
+        description: "Set pit instructions for front/rear tyre changes",
+        keywords: ["pitstop", "tyres", "tires"],
+      },
+      {
+        command: "pitins",
+        args: [
+          {
+            placeholder: "fcamber_l|fcamber_r|rcamber_l|rcamber_r",
+            isRequired: true,
+          },
+          {
+            placeholder: "degrees",
+            isRequired: true,
+          },
+        ],
+        description: "Set pit instructions for camber adjustment",
+        keywords: ["pitstop", "tyres", "tires", "camber"],
+      },
+      {
+        command: "pitins",
+        args: [
+          {
+            placeholder: "fpressure_l|fpressure_r|rpressure_l|rpressure_r",
+            isRequired: true,
+          },
+          {
+            placeholder: "value",
+            isRequired: true,
+          },
+        ],
+        description: "Set pit instructions for tyre pressure adjustment",
+        keywords: ["pitstop", "tyres", "tires", "pressure"],
+      },
+      {
+        command: "pitins",
+        args: [
+          {
+            placeholder: "fwing|rwing",
+            isRequired: true,
+          },
+          {
+            placeholder: "degrees",
+            isRequired: true,
+          },
+        ],
+        description: "Set pit instructions for wing angle adjustment",
+        keywords: ["pitstop", "aero"],
+      },
+      {
+        command: "pitins cancel",
+        description: "Cancel all pit instructions",
         keywords: [],
       },
       {
+        command: "liveset",
+        args: [
+          {
+            placeholder: "bbal|farb|rarb",
+            isRequired: true,
+          },
+          {
+            placeholder: "value",
+            isRequired: true,
+          },
+        ],
+        description: "Adjust live car settings (brake balance, anti-roll bars)",
+        keywords: ["arb"],
+      },
+      {
         command: "run",
-        description: "Run the script X (data\\script\\X.lfs)",
+        args: [
+          {
+            placeholder: "filename",
+            isRequired: true,
+          },
+        ],
+        description: "Run the script in data/script/X.lfs",
         keywords: ["file"],
       },
       {
         command: "exec",
-        description: "Run program E with command line C",
+        args: [
+          {
+            placeholder: "program",
+            isRequired: true,
+          },
+          {
+            placeholder: "command line",
+            isRequired: true,
+          },
+        ],
+        description: "Run program with command line arguments",
         keywords: [],
       },
       {
         command: "wait",
-        description: "Like exec but LFS hangs until E exits",
+        args: [
+          {
+            placeholder: "program",
+            isRequired: true,
+          },
+          {
+            placeholder: "command line",
+            isRequired: true,
+          },
+        ],
+        description: "Like exec but LFS hangs until program exits",
         keywords: [""],
       },
       {
         command: "fov",
+        args: [
+          {
+            placeholder: "30-160",
+            isRequired: true,
+          },
+        ],
         description: "Set field of view in degrees",
         keywords: ["camera"],
       },
       {
         command: "vlock",
-        description: "Set view lock (car/filter/horizon)",
+        args: [
+          {
+            placeholder: "car|filter|horizon",
+            isRequired: true,
+          },
+        ],
+        description: "Set view lock",
         keywords: ["camera", "tilt"],
       },
       {
         command: "lookf",
-        description: "Set look function (joystick/axis/steer/mouse_x/mouse_xy)",
-        keywords: ["camera", "input", "controls"],
+        args: [
+          {
+            placeholder: "joystick|axis|steer|mouse_x|mouse_xy",
+            isRequired: true,
+          },
+        ],
+        description: "Set look function",
+        keywords: ["camera", "input", "view", "controls"],
       },
       {
         command: "control",
-        description: "Set controller type (mouse_kb/wheel_js)",
+        args: [
+          {
+            placeholder: "mouse_kb|wheel_js",
+            isRequired: true,
+          },
+        ],
+        description: "Set controller type",
         keywords: ["device", "keyboard", "joystick", "wheel", "controls"],
       },
       {
         command: "ff",
-        description: "Set force feedback strength (0-200)",
+        args: [
+          {
+            placeholder: "0-200",
+            isRequired: true,
+          },
+        ],
+        description: "Set force feedback strength",
         keywords: ["ffb", "gain", "wheel", "controls"],
       },
       {
         command: "axis",
-        description: "Assign axis to function (e.g. /axis 2 throttle)",
+        args: [
+          {
+            placeholder: "number",
+            isRequired: true,
+          },
+          {
+            placeholder: "function",
+            isRequired: true,
+            hint: "steer | combined | throttle | brake | lookh | lookp | lookr | clutch | handbrake | shiftx | shifty",
+          },
+        ],
+        description: "Assign axis to function",
         keywords: ["axis", "wheel", "pedal", "controls"],
       },
       {
         command: "invert",
-        description: "Invert axis (0/1) for a function (e.g. /invert 1 brake)",
+        args: [
+          {
+            placeholder: "0|1",
+            isRequired: true,
+          },
+          {
+            placeholder: "function",
+            isRequired: true,
+            hint: "steer | combined | throttle | brake | lookh | lookp | lookr | clutch | handbrake | shiftx | shifty",
+          },
+        ],
+        description: "Invert axis for a function",
         keywords: ["wheel", "pedal", "inversion", "controls"],
       },
       {
         command: "button",
-        description: "Assign button to function (e.g. /button 5 shift_up)",
+        args: [
+          {
+            placeholder: "number",
+            isRequired: true,
+          },
+          {
+            placeholder: "function",
+            isRequired: true,
+            hint: "steer | combined | throttle | brake | lookh | lookp | lookr | clutch | handbrake | shiftx | shifty",
+          },
+        ],
+        description: "Assign button to function",
         keywords: ["shifter", "mapping", "controls"],
       },
       {
         command: "key",
-        description: "Assign key to function (e.g. /key Q handbrake)",
+        args: [
+          {
+            placeholder: "key",
+            isRequired: true,
+          },
+          {
+            placeholder: "function",
+            isRequired: true,
+            hint: "steer | combined | throttle | brake | lookh | lookp | lookr | clutch | handbrake | shiftx | shifty",
+          },
+        ],
+        description: "Assign key to function",
         keywords: ["keyboard"],
       },
       {
         command: "head_tilt",
+        args: [
+          {
+            placeholder: "meters",
+            isRequired: true,
+          },
+        ],
         description: "Set 1g head tilt in degrees",
         keywords: ["g-force", "view"],
       },
       {
         command: "lateral_shift",
+        args: [
+          {
+            placeholder: "meters",
+            isRequired: true,
+          },
+        ],
         description: "Set 1g lateral shift in meters",
         keywords: ["g-force", "view"],
       },
       {
         command: "forward_shift",
+        args: [
+          {
+            placeholder: "meters",
+            isRequired: true,
+          },
+        ],
         description: "Set 1g forward shift in meters",
         keywords: ["g-force", "view"],
       },
       {
         command: "vertical_shift",
+        args: [
+          {
+            placeholder: "meters",
+            isRequired: true,
+          },
+        ],
         description: "Set 1g vertical shift in meters",
         keywords: ["g-force", "view"],
       },
       {
         command: "hidetext",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "yes|no",
+          },
+        ],
         description: "Hide or show text (SHIFT + F)",
         keywords: ["ui", "gui", "interface"],
       },
       {
         command: "block",
-        description: "Block messages (none / user / all)",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "0|1|2",
+            hint: "0 = none / 1 = user / 2 = all",
+          },
+        ],
+        description: "Block messages",
         keywords: ["chat"],
       },
       {
         command: "showmouse",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "yes|no",
+          },
+        ],
         description: "Show or hide mouse (SHIFT + Z)",
         keywords: ["cursor"],
       },
       {
         command: "say",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "message",
+          },
+        ],
         description: "Same as typing a chat message",
         keywords: ["text"],
       },
       {
         command: "echo",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "text",
+          },
+        ],
         description: "Show text only on local screen",
         keywords: [],
       },
       {
         command: "ctrlf",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "1-12",
+          },
+          {
+            isRequired: true,
+            placeholder: "text",
+          },
+        ],
         description: 'Change text (e.g. "ctrlf 1 hello")',
         keywords: ["bind", "fn", "function"],
       },
       {
         command: "altf",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "1-12",
+          },
+          {
+            isRequired: true,
+            placeholder: "text",
+          },
+        ],
         description: 'Change text (e.g. "altf 1 bye")',
         keywords: ["bind", "fn", "function"],
       },
       {
         command: "wheel_turn",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "90-1080",
+          },
+        ],
         description: "Specify turn angle of controller in degrees",
         keywords: ["steering wheel", "angle"],
       },
       {
         command: "press",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "key",
+          },
+        ],
         description: "Simulate key press",
         keywords: ["keyboard", "shortcut"],
       },
       {
         command: "shift",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "key",
+          },
+        ],
         description: "Simulate SHIFT + key",
         keywords: ["keyboard", "press", "shortcut"],
       },
       {
         command: "ctrl",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "key",
+          },
+        ],
         description: "Simulate CTRL + key",
         keywords: ["keyboard", "press", "shortcut"],
       },
       {
         command: "alt",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "key",
+          },
+        ],
         description: "Simulate ALT + key",
         keywords: ["keyboard", "press", "shortcut"],
       },
       {
         command: "autoclutch",
-        description: "Turn autoclutch off / on (0-1)",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "0|1",
+          },
+        ],
+        description: "Turn autoclutch off / on",
         keywords: ["clutch", "pedal"],
       },
       {
         command: "shifter",
-        description: "Set shift type (auto/sequential/shifter)",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "auto|sequential|shifter",
+          },
+        ],
+        description: "Set shift type",
         keywords: ["gear"],
       },
       {
         command: "view",
-        description: "Select view (fol/heli/cam/driver/custom)",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "fol|heli|cam|driver|custom",
+          },
+        ],
+        description: "Select view",
         keywords: ["camera", "helicopter", "follow", "chase"],
       },
       {
@@ -1388,8 +1768,13 @@ export const commands: CommandGroup[] = [
       },
       {
         command: "vr",
-        description:
-          "Instantly enter or leave VR mode (on/off/toggle/rift/openvr)",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "on|off|toggle|rift|openvr",
+          },
+        ],
+        description: "Instantly enter or leave VR mode",
         keywords: ["virtual reality", "headset", "3D", "view", "oculus"],
       },
       {
@@ -1408,24 +1793,209 @@ export const commands: CommandGroup[] = [
     name: "LFS World",
     commands: [
       {
-        command: "w",
-        description: "Sends command to LFS World for current car/track",
+        command: "w pb",
+        args: [
+          {
+            isRequired: false,
+            placeholder: "username",
+            hint: "blank - own stats",
+          },
+        ],
+        description:
+          "Sends command to LFS World for personal best on this track with this car",
+        keywords: ["online", "stats", "PB"],
+      },
+      {
+        command: "w hl",
+        args: [
+          {
+            isRequired: false,
+            placeholder: "username",
+            hint: "blank - own stats",
+          },
+        ],
+        description:
+          "Sends command to LFS World for uploaded hotlap on this track with this car",
+        keywords: ["online", "stats"],
+      },
+      {
+        command: "w wr",
+        args: [
+          {
+            isRequired: false,
+            placeholder: "username",
+            hint: "blank - own stats",
+          },
+        ],
+        description:
+          "Sends command to LFS World for world record on this track with this car",
+        keywords: ["online", "stats", "WR"],
+      },
+      {
+        command: "w laps",
+        args: [
+          {
+            isRequired: false,
+            placeholder: "username",
+            hint: "blank - own stats",
+          },
+        ],
+        description:
+          "Sends command to LFS World for total laps on this track with this car",
+        keywords: ["online", "stats", "PB"],
+      },
+      {
+        command: "w fuel",
+        args: [
+          {
+            isRequired: false,
+            placeholder: "username",
+            hint: "blank - own stats",
+          },
+        ],
+        description:
+          "Sends command to LFS World for fuel usage on this track with this car",
+        keywords: ["online", "stats"],
+      },
+      {
+        command: "w tlaps",
+        args: [
+          {
+            isRequired: false,
+            placeholder: "username",
+            hint: "blank - own stats",
+          },
+        ],
+        description:
+          "Sends command to LFS World for all-time total laps driven",
+        keywords: ["online", "stats"],
+      },
+      {
+        command: "w distance",
+        args: [
+          {
+            isRequired: false,
+            placeholder: "username",
+            hint: "blank - own stats",
+          },
+        ],
+        description: "Sends command to LFS World for all-time driven distance",
+        keywords: ["online", "stats"],
+      },
+      {
+        command: "w win",
+        args: [
+          {
+            isRequired: false,
+            placeholder: "username",
+            hint: "blank - own stats",
+          },
+        ],
+        description: "Sends command to LFS World for all-time race wins",
+        keywords: ["online", "stats", "victory"],
+      },
+      {
+        command: "w second",
+        args: [
+          {
+            isRequired: false,
+            placeholder: "username",
+            hint: "blank - own stats",
+          },
+        ],
+        description: "Sends command to LFS World for all-time second places",
+        keywords: ["online", "stats"],
+      },
+      {
+        command: "w third",
+        args: [
+          {
+            isRequired: false,
+            placeholder: "username",
+            hint: "blank - own stats",
+          },
+        ],
+        description: "Sends command to LFS World for all-time third places",
+        keywords: ["online", "stats"],
+      },
+      {
+        command: "w drags",
+        args: [
+          {
+            isRequired: false,
+            placeholder: "username",
+            hint: "blank - own stats",
+          },
+        ],
+        description:
+          "Sends command to LFS World for all-time total drag races / wins",
+        keywords: ["online", "stats"],
+      },
+      {
+        command: "w finished",
+        args: [
+          {
+            isRequired: false,
+            placeholder: "username",
+            hint: "blank - own stats",
+          },
+        ],
+        description: "Sends command to LFS World for all-time finishes",
+        keywords: ["online", "stats"],
+      },
+      {
+        command: "w find",
+        args: [
+          {
+            isRequired: false,
+            placeholder: "username",
+            hint: "blank - own stats",
+          },
+        ],
+        description:
+          "Sends command to LFS World to check if someone is online on any host",
+        keywords: ["online", "stats", "server"],
+      },
+      {
+        command: "w help",
+        description: "LFS World command lis and usage",
         keywords: ["online", "stats"],
       },
       {
         command: "ws",
+        args: [
+          {
+            placeholder: "XXCR",
+            isRequired: true,
+            hint: "XX = two-letter track short name, C = config number, R = reversed direction or open config",
+          },
+          {
+            placeholder: "car",
+            isRequired: true,
+          },
+          {
+            placeholder: "command",
+            isRequired: true,
+            hint: "pb | hl | wr | laps | fuel | tlaps | distance | win | second | third | drags | finished",
+          },
+        ],
         description: "Sends command for specified car/track to LFS World",
         keywords: ["online", "stats"],
       },
       {
-        command: "m find",
-        description: "Find a user online via master server",
-        keywords: ["multiplayer"],
+        command: "m users",
+        description: "Get the number of users online for each license level",
+        keywords: ["online", "stats", "LFS World"],
       },
       {
-        command: "m ?",
-        description: "Get a list of master commands",
-        keywords: ["server", "help"],
+        command: "m demo",
+        description: "Get the number of users online for each license level",
+        keywords: ["online", "stats", "LFS World", "master"],
+      },
+      {
+        command: "m hosts",
+        description: "Get the number of hosts online for each license level",
+        keywords: ["online", "stats", "LFS World", "master"],
       },
     ],
   },
