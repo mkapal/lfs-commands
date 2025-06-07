@@ -116,7 +116,7 @@ export const commands: CommandGroup[] = [
       {
         command: "vote",
         description: "Allow or disallow guest voting",
-        keywords: ["multiplayer", "kick", "ban"],
+        keywords: ["multiplayer", "kick", "ban", "vote"],
       },
       {
         command: "select",
@@ -142,7 +142,7 @@ export const commands: CommandGroup[] = [
         command: "autokick",
         description:
           "Set automatic action for wrong way drivers (no, kick, ban, spec)",
-        keywords: ["autokick", "wrong way", "kick", "ban", "spectate"],
+        keywords: ["spectate"],
       },
       {
         command: "midrace",
