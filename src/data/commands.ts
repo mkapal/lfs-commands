@@ -435,6 +435,10 @@ export const commands: CommandGroup[] = [
         command: "cansiren",
         args: [
           {
+            placeholder: "username",
+            isRequired: true,
+          },
+          {
             placeholder: "0|1",
             isRequired: true,
           },
