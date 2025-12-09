@@ -820,6 +820,73 @@ export const commands: CommandGroup[] = [
         description: "Clear all RCMs",
         keywords: ["central text"],
       },
+      {
+        command: "grid",
+        description: "Get the current race grid setting",
+        keywords: ["grid", "race", "position"]
+      },
+      {
+        command: "grid",
+        args: [
+          {
+            placeholder: "open/self/lock",
+            isRequired: false,
+            hint: "/grid                        open   self    lock\n" +
+                  "JOIN RACE               Y         Y       N\n" +
+                  "REMOVE SELF          Y         Y       N\n" +
+                  "REMOVE OTHERS    Y         N       N\n" +
+                  "MOVE PLAYERS       Y         N       N"
+          },
+        ],
+        description: "Update the race grid setting",
+        keywords: ["grid", "race", "position"]
+      },
+      {
+        command: "grid",
+        args: [
+          {
+            placeholder: "static",
+            isRequired: true
+          },
+          {
+            placeholder: "X",
+            isRequired: true,
+            hint: "The first X grid slots are protected from auto rearranging when the race restarts.\nThe first X grid slots are unaffected by the result of qualifying or race finish, on restart."
+          }
+        ],
+        description: "Update the race grid setting",
+        keywords: ["grid", "race", "position", "static"]
+      },
+      {
+        command: "grid",
+        args: [
+          {
+            placeholder: "real",
+            isRequired: true
+          },
+          {
+            placeholder: "yes|no",
+            isRequired: true
+          }
+        ],
+        description: "Set if real players are allowed to join the grid",
+        keywords: ["grid", "race", "position", "real"]
+      },
+      {
+        command: "grid",
+        args: [
+          {
+            placeholder: "ai",
+            isRequired: true,
+          },
+          {
+            placeholder: "yes|no",
+            isRequired: true
+          }
+        ],
+        description: "Set if AI players are allowed to join the grid",
+        keywords: ["grid", "race", "position", "ai"]
+      }
     ],
   },
   {
@@ -2000,7 +2067,7 @@ export const commands: CommandGroup[] = [
         command: "m hosts",
         description: "Get the number of hosts online for each license level",
         keywords: ["online", "stats", "LFS World", "master"],
-      },
+      }
     ],
   },
 ];
