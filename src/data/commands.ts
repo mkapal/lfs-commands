@@ -97,9 +97,9 @@ export const commands: CommandGroup[] = [
         command: "laps",
         args: [
           {
-            placeholder: "0-1000",
+            placeholder: "0-1000|no",
             isRequired: true,
-            hint: "0 = practice",
+            hint: "0 = practice, no = untimed",
           },
         ],
         description: "Set number of laps",
