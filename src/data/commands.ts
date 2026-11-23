@@ -56,6 +56,11 @@ export const commands: CommandGroup[] = [
         keywords: ["reset", "lap", "car"],
       },
       {
+        command: "spec_all",
+        description: "Make all users join the spectators",
+        keywords: ["spectate", "all"],
+      },
+      {
         command: "track",
         args: [
           {
@@ -608,6 +613,34 @@ export const commands: CommandGroup[] = [
         keywords: ["team", "map", "color", "colour"],
       },
       {
+        command: "flood",
+        args: [
+          {
+            placeholder: "yes|no",
+            isRequired: true,
+          },
+        ],
+        description: "Switch floodlights on or off",
+        keywords: ["lights", "night"],
+      },
+      {
+        command: "h",
+        args: [
+          {
+            placeholder: "command",
+            isRequired: true,
+            hint: "Example: /h player Host Name",
+          },
+        ],
+        description: "Run the following command as if typed on the host",
+        keywords: ["host", "server"],
+      },
+      {
+        command: "results clear",
+        description: "Clear the results table",
+        keywords: ["race", "reset"],
+      },
+      {
         command: "axlist",
         args: [
           {
@@ -886,7 +919,63 @@ export const commands: CommandGroup[] = [
         ],
         description: "Set if AI players are allowed to join the grid",
         keywords: ["grid", "race", "position", "ai"]
-      }
+      },
+      {
+        command: "time",
+        description: "Show current time status",
+        keywords: ["clock", "day", "date"],
+      },
+      {
+        command: "time live",
+        description: "Set live time",
+        keywords: ["clock", "day", "date", "real"],
+      },
+      {
+        command: "time offset",
+        args: [
+          {
+            placeholder: "+/-days +/-hours:mins",
+            isRequired: true,
+            hint: "Example: +4 or +4:00",
+          },
+        ],
+        description: "Shift live time by an offset",
+        keywords: ["clock", "day", "date"],
+      },
+      {
+        command: "time set",
+        args: [
+          {
+            placeholder: "date time utc",
+            isRequired: true,
+            hint: "Example: 23 Jan 16:00 utc+5 (each part is optional)",
+          },
+        ],
+        description: "Set a fixed date and time",
+        keywords: ["clock", "day", "date", "timezone"],
+      },
+      {
+        command: "time mul",
+        args: [
+          {
+            placeholder: "multiplier",
+            isRequired: true,
+          },
+        ],
+        description: "Set time multiplier (set-time mode only)",
+        keywords: ["clock", "speed", "accelerate"],
+      },
+      {
+        command: "time demo",
+        args: [
+          {
+            placeholder: "morning|afternoon|sunset",
+            isRequired: true,
+          },
+        ],
+        description: "Set demo time of day (set-time mode only)",
+        keywords: ["clock", "lighting"],
+      },
     ],
   },
   {
@@ -1144,6 +1233,65 @@ export const commands: CommandGroup[] = [
         command: "entry",
         description: "Return to entry screen",
         keywords: ["menu"],
+      },
+      {
+        command: "eventlist",
+        args: [
+          {
+            placeholder: "yes|no",
+            isRequired: true,
+          },
+        ],
+        description: "Enable or disable the list of events on the entry screen",
+        keywords: ["menu"],
+      },
+      {
+        command: "ss",
+        description: "Save a screenshot to LFS\\data\\shots",
+        keywords: ["screenshot", "image", "picture"],
+      },
+      {
+        command: "ss",
+        args: [
+          {
+            placeholder: "username",
+            isRequired: true,
+          },
+        ],
+        description: "Send setup to a user",
+        keywords: ["setup", "multiplayer"],
+      },
+      {
+        command: "ssh",
+        description: "Send setup to the host (for setup checks in limited setup events)",
+        keywords: ["setup", "multiplayer", "server"],
+      },
+      {
+        command: "soffl",
+        args: [
+          {
+            placeholder: "value",
+            isRequired: true,
+          },
+        ],
+        description: "Set screen offset lateral (view options)",
+        keywords: ["view", "screen", "monitor"],
+      },
+      {
+        command: "soffv",
+        args: [
+          {
+            placeholder: "value",
+            isRequired: true,
+          },
+        ],
+        description: "Set screen offset vertical (view options)",
+        keywords: ["view", "screen", "monitor"],
+      },
+      {
+        command: "timer",
+        description: "Show info about Windows timer resolution",
+        keywords: ["debug", "performance"],
       },
       {
         command: "spectv",
@@ -2029,8 +2177,34 @@ export const commands: CommandGroup[] = [
       },
       {
         command: "w help",
-        description: "LFS World command lis and usage",
+        description: "LFS World command list and usage",
         keywords: ["online", "stats"],
+      },
+      {
+        command: "w msg",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "username",
+          },
+        ],
+        description: "Start sending an SMS to another LFS racer",
+        keywords: ["online", "message", "chat", "phone"],
+      },
+      {
+        command: "w txt",
+        args: [
+          {
+            isRequired: true,
+            placeholder: "username",
+          },
+          {
+            isRequired: true,
+            placeholder: "message",
+          },
+        ],
+        description: "Add text and send it to the user's mobile phone",
+        keywords: ["online", "message", "sms", "phone"],
       },
       {
         command: "ws",
