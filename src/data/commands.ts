@@ -1052,6 +1052,43 @@ export const commands: CommandGroup[] = [
         keywords: [],
       },
       {
+        command: "mod",
+        args: [
+          {
+            placeholder: "name",
+            isRequired: true,
+            hint: "Whole mod name, e.g. FOOTBALL",
+          },
+        ],
+        description: "Select mod",
+        keywords: ["car", "vehicle"],
+      },
+      {
+        command: "sai",
+        args: [
+          {
+            placeholder: "m|f",
+            hint: "Male or female driver",
+          },
+          {
+            placeholder: "solid",
+            hint: "Enable collision for float, ground or angle",
+          },
+          {
+            placeholder: "move|float|ground|angle",
+            isRequired: true,
+            hint: "move = ordinary AI that can drive / float = floats at start position height / ground = placed at ground level / angle = takes the lean of the ground",
+          },
+          {
+            placeholder: "name",
+            hint: "AI name. Example: /sai solid ground football",
+          },
+        ],
+        description:
+          "Add special AI driver, useful for object mods (uses selected car or mod)",
+        keywords: ["ai", "mod", "object", "track", "unmovable"],
+      },
+      {
         command: "spec",
         description: "Spectate or leave grid",
         keywords: [],
